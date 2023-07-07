@@ -135,7 +135,7 @@ const processRegister = async (req, res, next) => {
 
     // send email with nodemailer
     try {
-      await emailWithNodemailer(emailData);
+      // await emailWithNodemailer(emailData);
     } catch (emailError) {
       next(createError(500, "Failed to send verification email"));
       return;
