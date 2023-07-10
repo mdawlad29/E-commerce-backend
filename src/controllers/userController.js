@@ -2,7 +2,6 @@ const createError = require("http-errors");
 const jwt = require("jsonwebtoken");
 const User = require("../models/userModel");
 const { successResponse } = require("../errorHandler/errorHandler");
-const mongoose = require("mongoose");
 const { findWithId } = require("../services/findUser");
 const fs = require("fs");
 const { createJSONWebToken } = require("../helper/jsonwebToken");

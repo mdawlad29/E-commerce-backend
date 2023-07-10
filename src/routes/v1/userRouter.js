@@ -7,11 +7,19 @@ const {
   activateUserAccount,
 } = require("../../controllers/userController");
 const upload = require("../../middlewars/uploadFile");
+const { validatorUserRegistration } = require("../../validators/auth");
+const runValidation = require("../../validators");
 
 const userRouter = express.Router();
 
 // Get User API
-userRouter.post("/process-register", upload.single("image"), processRegister);
+userRouter.post(
+  "/process-register",
+  upload.single("image"),
+  validatorUserRegistration,
+  runValidation,
+  processRegister
+);
 userRouter.post("/verify", activateUserAccount);
 userRouter.get("/", getUsers);
 userRouter.get("/:id", getUserById);
